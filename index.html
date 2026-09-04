@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hayoung Kim — Economist, Sogang University</title>
+<meta name="description" content="Hayoung Kim is an Assistant Professor in the Department of Real Estate at Sogang University, working on real estate, urban and regional economics, and applied microeconomics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFCFA;
+    --ink:#1B2430;
+    --ink-2:#4A5563;
+    --ink-3:#7C8794;
+    --rule:#E3E6E9;
+    --accent:#2F5F7C;      /* survey-map blue */
+    --accent-soft:#E6EEF3;
+    --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans:"Inter", -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--serif);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:currentColor}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .wrap{
+    max-width:1080px;margin:0 auto;padding:56px 32px 96px;
+    display:grid;grid-template-columns:280px minmax(0,640px);column-gap:88px;
+  }
+
+  /* ---------- sidebar ---------- */
+  .side{position:sticky;top:56px;align-self:start}
+  .portrait{
+    width:200px;aspect-ratio:4/5;object-fit:cover;display:block;
+    background:linear-gradient(135deg,#DDE5EB,#C9D5DE);
+    border-radius:2px;
+  }
+  .portrait-placeholder{
+    width:200px;aspect-ratio:4/5;border-radius:2px;
+    background:var(--accent-soft);display:flex;align-items:flex-end;padding:12px;
+    font-family:var(--sans);font-size:12px;color:var(--ink-3);line-height:1.4;
+  }
+  .side h1{
+    font-size:30px;line-height:1.15;font-weight:600;letter-spacing:-.01em;
+    margin:24px 0 6px;
+  }
+  .side .role{margin:0;color:var(--ink-2);font-size:16px;line-height:1.45}
+  .side .role span{display:block}
+
+  .nav{margin:32px 0 0;padding:0;list-style:none;font-family:var(--sans);font-size:14px}
+  .nav li{margin:0}
+  .nav a{
+    display:block;padding:7px 0 7px 14px;color:var(--ink-2);border:0;
+    border-left:2px solid var(--rule);transition:border-color .15s,color .15s;
+  }
+  .nav a:hover{color:var(--ink)}
+  .nav a.active{border-left-color:var(--accent);color:var(--ink)}
+
+  .side .contact{margin:32px 0 0;font-family:var(--sans);font-size:14px;color:var(--ink-2);line-height:1.7}
+  .side .contact a{border-bottom:1px solid var(--rule)}
+  .side .contact a:hover{border-bottom-color:var(--accent)}
+
+  /* ---------- main ---------- */
+  main{min-width:0}
+  section{padding:0 0 56px;scroll-margin-top:40px}
+  section + section{border-top:1px solid var(--rule);padding-top:44px}
+  h2{
+    font-size:14px;font-family:var(--sans);font-weight:500;color:var(--ink-3);
+    margin:0 0 22px;letter-spacing:.01em;
+  }
+  .lede{font-size:22px;line-height:1.5;margin:0 0 20px;letter-spacing:-.005em}
+  p{margin:0 0 16px}
+  .edu{margin:28px 0 0;padding:0;list-style:none;font-size:15.5px;color:var(--ink-2)}
+  .edu li{display:grid;grid-template-columns:52px 1fr;column-gap:16px;padding:5px 0;border-top:1px solid var(--rule)}
+  .edu li:last-child{border-bottom:1px solid var(--rule)}
+  .edu b{font-weight:600;color:var(--ink);font-family:var(--sans);font-size:13px;padding-top:3px}
+
+  /* publications */
+  .pubs{margin:0;padding:0;list-style:none}
+  .pubs li{display:grid;grid-template-columns:56px 1fr;column-gap:20px;padding:14px 0;border-top:1px solid var(--rule)}
+  .pubs li:last-child{border-bottom:1px solid var(--rule)}
+  .pubs .year{font-family:var(--sans);font-size:14px;color:var(--ink-3);padding-top:3px}
+  .pubs .title{font-size:18px;line-height:1.35;margin:0 0 4px}
+  .pubs .venue{color:var(--ink-2);font-size:15.5px;margin:0}
+  .pubs .venue i{font-style:italic}
+  .links{font-family:var(--sans);font-size:13px;margin:8px 0 0;display:flex;gap:14px;flex-wrap:wrap}
+  .links a{color:var(--ink-2);border-bottom:1px solid var(--rule)}
+  .links a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  .status{
+    display:inline-block;font-family:var(--sans);font-size:12px;color:var(--accent);
+    background:var(--accent-soft);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:2px;
+  }
+
+  /* working papers with expandable abstracts */
+  .wp{margin:0;padding:0;list-style:none}
+  .wp li{padding:16px 0;border-top:1px solid var(--rule)}
+  .wp li:last-child{border-bottom:1px solid var(--rule)}
+  details summary{
+    cursor:pointer;list-style:none;font-size:18px;line-height:1.35;
+    display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{
+    content:"Abstract";font-family:var(--sans);font-size:13px;color:var(--ink-3);
+    white-space:nowrap;padding-top:4px;flex:none;
+  }
+  details[open] summary::after{content:"Hide"}
+  details .body{margin-top:12px;color:var(--ink-2);font-size:16px;line-height:1.65;max-width:60ch}
+  details .body p:last-child{margin-bottom:0}
+
+  .wip{margin:0;padding:0;list-style:none;font-size:17px}
+  .wip li{padding:10px 0;border-top:1px solid var(--rule)}
+  .wip li:last-child{border-bottom:1px solid var(--rule)}
+  .wip small{font-family:var(--sans);font-size:14px;color:var(--ink-3);margin-left:8px}
+
+  .courses{margin:0;padding:0;list-style:none}
+  .courses li{display:grid;grid-template-columns:1fr auto;gap:16px;padding:10px 0;border-top:1px solid var(--rule);align-items:baseline}
+  .courses li:last-child{border-bottom:1px solid var(--rule)}
+  .courses small{font-family:var(--sans);font-size:13px;color:var(--ink-3)}
+
+  footer{
+    grid-column:1 / -1;margin-top:40px;padding-top:20px;border-top:1px solid var(--rule);
+    font-family:var(--sans);font-size:13px;color:var(--ink-3);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .wrap{grid-template-columns:1fr;column-gap:0;padding:36px 22px 72px}
+    .side{position:static;display:grid;grid-template-columns:120px 1fr;column-gap:22px;align-items:end;margin-bottom:40px}
+    .portrait,.portrait-placeholder{width:120px}
+    .side h1{margin-top:0;font-size:26px}
+    .nav{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;margin-top:22px}
+    .nav a{padding:6px 12px;border:1px solid var(--rule);border-radius:999px}
+    .nav a.active{border-color:var(--accent);background:var(--accent-soft)}
+    .side .contact{grid-column:1/-1;margin-top:16px}
+    .pubs li{grid-template-columns:1fr}
+    .pubs .year{padding:0 0 2px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <aside class="side">
+    <!-- Currently loads the photo from the old Google Site. To make the page self-contained,
+         save the photo next to this file as photo.jpg and change src="photo.jpg". -->
+    <img class="portrait" src="https://lh3.googleusercontent.com/sitesv/AG8ngQW_HtPZf1K1K8BpnqsL03jxUDTN0VvkvmPuUqM6TqOqTjiakAIBvt9_OKmnyBE_klSBQpAr5mfRW62gErDb2lnY2UfhTeUogt8C_pEy9t9yFJ73iXYp20E7LpTPg1ZzxqdgTCViK6RsxnJxDp_Ro-FDkwhjNDeQCVwwucKR4ELD3xEhulwmBC8CE_bcRlfxrqAX1t9k070btL1sZwg=w800" alt="Hayoung Kim">
+
+    <h1>Hayoung Kim</h1>
+    <p class="role">
+      <span>Assistant Professor</span>
+      <span>Department of Real Estate</span>
+      <span>Sogang University</span>
+    </p>
+
+    <ul class="nav" aria-label="Sections">
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#working-papers">Working papers</a></li>
+      <li><a href="#in-progress">In progress</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+    </ul>
+
+    <p class="contact">
+      <a href="mailto:k.hayoung@gmail.com">k.hayoung@gmail.com</a><br>
+      <!-- Add when ready:
+      <a href="cv.pdf">Curriculum vitae (PDF)</a><br>
+      <a href="https://scholar.google.com/citations?user=XXXX" rel="noopener">Google Scholar</a> -->
+    </p>
+  </aside>
+
+  <main>
+
+    <section id="about">
+      <p class="lede">
+        I study how information and location shape decisions in housing and urban markets — where people buy, what they consume, and how prices respond.
+      </p>
+      <p>
+        My research sits at the intersection of real estate, urban and regional economics, and applied microeconomics. Recent work looks at the spillovers of place-based housing policy, the role of price information in housing wealth effects, and how publicity interacts with locational advantage in retail.
+      </p>
+      <ul class="edu">
+        <li><b>PhD</b><span>London School of Economics and Political Science</span></li>
+        <li><b>MSc</b><span>London School of Economics and Political Science</span></li>
+        <li><b>MA</b><span>Seoul National University</span></li>
+        <li><b>BS</b><span>Seoul National University</span></li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <ol class="pubs" reversed>
+        <li>
+          <span class="year">2025</span>
+          <div>
+            <p class="title">Place-based policy and spillovers in the housing market</p>
+            <p class="venue"><i>Economics Letters</i>, 248, 112242</p>
+            <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S0165176525000795" rel="noopener">Journal</a></p>
+          </div>
+        </li>
+        <li>
+          <span class="year">2024</span>
+          <div>
+            <p class="title">Homebuyers’ geographic proximity as a predictor of future housing price growth</p>
+            <p class="venue"><i>Real Estate Economics</i>, 52, 1140–1158</p>
+            <p class="links"><a href="https://doi.org/10.1111/1540-6229.12479" rel="noopener">Journal</a></p>
+          </div>
+        </li>
+        <li>
+          <span class="year">2023</span>
+          <div>
+            <p class="title">Racial segregation in urban consumption</p>
+            <p class="venue"><i>Applied Economics Letters</i>, 30(5), 678–682</p>
+            <p class="links"><a href="https://doi.org/10.1080/13504851.2021.2011094" rel="noopener">Journal</a></p>
+          </div>
+        </li>
+        <li>
+          <span class="year">2022</span>
+          <div>
+            <p class="title">Heterogeneous effects of information disclosure: Evidence from housing markets</p>
+            <p class="venue"><i>Journal of Economic Behavior &amp; Organization</i>, 195, 359–380</p>
+            <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S0167268122000233" rel="noopener">Journal</a></p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="working-papers">
+      <h2>Working papers</h2>
+      <ul class="wp">
+        <li>
+          <details>
+            <summary><span>Spatially heterogeneous effects of publicity: Evidence from the restaurant industry in New York City<span class="status">R&amp;R, <i>J. Econ. &amp; Management Strategy</i></span></span></summary>
+            <div class="body">
+              <p>A traditional way to increase store visibility in the brick-and-mortar retail industry is to pick a location that grants a retail establishment the best visibility for a given budget. Yet recent years have witnessed increasing attention to “information visibility” in this industry because of the rapid growth in the use of information technologies. If the economic effects of information diffusion were homogeneous across locations, then it would become less optimal for retail entrepreneurs to choose traditionally favored locations. However, I find that diner responses to <i>New York Times</i> restaurant reviews, although significant on average, are insignificant unless the focal business is situated in a central location characterized by high customer or competitor density. These results indicate that publicity is likely to complement, but is not a substitute for, locational centrality. So for retailers offering non-tradable goods or services, an improving information environment is likely to make favored retail locations more favorable.</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary><span>Housing prices and consumption: The role of price information</span></summary>
+            <div class="body">
+              <p>The observed relationships between housing prices and consumption are highly inconsistent over time. By exploiting local newspaper contents in the U.S., I find that a greater number of newspaper articles conveying information on house prices is associated with more elastic household consumption with respect to regional housing prices. The regression results are statistically significant only for homeowners and only when a housing news article includes real estate terms in its headline. The findings suggest that the provision of house price information is a main source of observed housing wealth effects, highlighting the importance of information agents and information interventions in shaping household behaviors and economic decisions.</p>
+            </div>
+          </details>
+        </li>
+      </ul>
+    </section>
+
+    <section id="in-progress">
+      <h2>Work in progress</h2>
+      <ul class="wip">
+        <li>Livable houses and investable houses: Housing market segmentation and differential market dynamics</li>
+        <li>News-driven house price momentum</li>
+        <li>Expert reviews and congestion problems <small>with T.J. Yoon</small></li>
+      </ul>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <!-- Add one <li> per course -->
+      <ul class="courses">
+        <li><span>Seminar in Real Estate Studies (부동산학세미나)</span><small>Sogang University</small></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Hayoung Kim · hykim.me</span>
+    <span>Last updated September 2026</span>
+  </footer>
+</div>
+
+<script>
+  // Highlight the section currently in view
+  const links=[...document.querySelectorAll('.nav a')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
+    }});
+  },{rootMargin:'-30% 0px -60% 0px'});
+  secs.forEach(s=>s&&io.observe(s));
+</script>
+</body>
+</html>
